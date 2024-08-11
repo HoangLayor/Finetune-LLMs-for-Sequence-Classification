@@ -59,8 +59,9 @@ test_data_dir = os.path.join(ROOT_DIR, "data/TestData_nolabel")
 train_csv_file = os.path.join(ROOT_DIR, "BaiThi2/train_data.csv")
 test_csv_file = os.path.join(ROOT_DIR, "BaiThi2/test_data.csv")
 ```
-# from custom_data import custom_data_to_csv
 ```python
+# from custom_data import custom_data_to_csv
+
 with open(train_csv_file, 'w') as csv_f:
     csv_f.write("filename,label,text\n")
 
