@@ -291,39 +291,3 @@ labels_list.extend([id2label[label_id] for label_id in labels])
 for id, prediction in enumerate(predictions):
     print(f"Actual Label: {labels_list[id]}\n>>> Prediction: {predictions_list[id]}")
 ```
-# Classify test_dataset
-```python
-with open(test_csv_file, 'w') as f:
-    f.write(f"filename,label,text\n")
-custom_data_to_csv(-1, test_data_dir, test_csv_file)
-df = pd.read_csv(test_csv_file)
-print(df.head())
-print(df.info())
-test_dataset = df
-```
-```python
-test_dataset["text"] = test_dataset["text"].astype(str)
-test_dataset["filename"] = test_dataset["filename"].astype(str)
-test_dataset = Dataset.from_pandas(test_dataset)
-test_dataset
-```
-```python
-predictions_list = []
-
-texts = test_dataset['text']
-filename = test_dataset['filename']
-predictions = classify(texts)
-predictions_list.extend(predictions)
-with open(f"result.csv", "w") as f:
-    f.write("")
-for id, prediction in enumerate(predictions_list):
-    with open("result.csv", "a") as f:
-        f.write(f"{filename[id]},{prediction[0]}\n")
-    print(f"{filename[id]}: {texts[id]}")
-    print(f">>> {prediction}")
-```
-```python
-for id, prediction in enumerate(predictions_list):
-    formatted_num = "{:.10f}".format(prediction[1])
-    print(f"{filename[id].rjust(14)} >>> {prediction[0].rjust(7)} >>> {formatted_num.rjust(10)}")
-```
