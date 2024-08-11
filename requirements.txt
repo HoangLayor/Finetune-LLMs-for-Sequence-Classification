@@ -1,0 +1,9 @@
+pandas
+numpy
+datasets
+transformers
+torch
+evaluate
+scikit-learn
+loguru
+tqdm
