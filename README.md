@@ -129,7 +129,6 @@ model = AutoModelForSequenceClassification.from_pretrained(MODEL_ID, num_labels=
 tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
 ```
 ```python
-type(train_dataset['train']['label'])
 import evaluate
 import nltk
 import numpy as np
