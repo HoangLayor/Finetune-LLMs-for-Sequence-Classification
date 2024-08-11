@@ -7,10 +7,8 @@ import csv
 from email import policy
 import os
 import re
-```
 
 # Sắp xếp file theo thứ tự
-```python
 def natural_sort_key(s):
     return [int(c) if c.isdigit() else c.lower() for c in re.split(r'(\d+)', s)]
 
